@@ -121,7 +121,7 @@ export function runQuarterlyRegressionsForTicker(latestFirstDataPoints) {
         regression_best_fit_line_equation,
         next_year_quarterly_revenue_prediction,
         'max_y_0_to_t': maxChronologicalYValue,
-        't+1y/max_y_0_to_t': tPlusDifference
+        't+1y_difference': tPlusDifference
     }
 }
 

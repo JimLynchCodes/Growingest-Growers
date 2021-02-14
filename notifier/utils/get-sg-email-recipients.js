@@ -34,7 +34,7 @@ const getSendgridTripleTrendersEmailRecipients = listId => {
         resolve(emailAddressesForTtSubscribersFiltered)
 
       }, err => {
-        logger.log('err getting contacts! ', err)
+        logger.error('err getting contacts! ', err)
       })
   })
 }

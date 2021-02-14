@@ -108,15 +108,15 @@ const buildEgRowFromStocksArray = (stocksArray) => {
                 '</td>' +
                 
                 '<td style="min-width:78px">' +
-                `<p>${stockObj.fundamentals['profit_m']}</p>` +
+                `<p title="Net Profit Margin: ${stockObj.fundamentals['p/e']}&#013;Operating Profit Margin: ${stockObj.fundamentals['oper_m']}&#013;Gross Profit Margin: ${stockObj.fundamentals['gross_m']}">${stockObj.fundamentals['profit_m']}</p>&#013;` +
                 '</td>' +
                 
                 '<td style="min-width:78px">' +
-                `<p>${stockObj.fundamentals['p/e']}</p>` +
+                `<p title="Current P/E: ${stockObj.fundamentals['p/e']}&#013;Forward P/E: ${stockObj.fundamentals['fwd_p/e']}&#013;PEG: ${stockObj.fundamentals['peg']}">${stockObj.fundamentals['p/e']}</p>&#013;` +
                 '</td>' +
                 
                 '<td style="min-width:120px">' +
-                `<p>${stockObj.fundamentals['eps_next_y']}</p>` +
+                `<p title="EPS Growth Over:&#013;Next 1 Year: ${stockObj.fundamentals['eps_next_y']}&#013;Next 5 Years: ${stockObj.fundamentals['eps_next_5y']}&#013;Past 1 Year: ${stockObj.fundamentals['eps_this_y']}&#013;Past 5 Years: ${stockObj.fundamentals['eps_past_5y']}">${stockObj.fundamentals['eps_next_y']}</p>&#013;` +
                 '</td>' +
                 
                 // '<td style="min-width:75px">' +

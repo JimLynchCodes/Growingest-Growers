@@ -60,7 +60,7 @@ const main = async () => {
           to: recipient,
           from: process.env.SG_FROM_EMAIL,
           html: fullTextEmail,
-          subject: `Growingest Growers - ${analyzedStocks.date_scraped}`,
+          subject: `Growingest Growers - ${new Date(analyzedStocks.date_scraped).toDateString()}`,
           // subject: `Growingest Growers - 1/17/2021`,
           asm: {
             group_id: +process.env.SENDGRID_UNSUBSCRIBE_GROUP_ID

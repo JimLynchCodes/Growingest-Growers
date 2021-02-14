@@ -26,7 +26,7 @@ export const main = async () => {
   console.log(`found at zero: ${JSON.stringify(scrapedTickerList[0]), null, 2}`)
 
   const scrapedTickerListNotOvervalued = scrapedTickerList.filter(stockObj => {
-    const peString = stockObj['p/e']
+    const peString = stockObj.fundamentals['p/e']
 
     // if (peString === '-')
     //   return false
@@ -62,9 +62,9 @@ export const main = async () => {
 
   // Remove stocks that are shrinking in all three areas...
   const sortedRankedTickerListGoodOnes = sortedRankedTickerList.filter(tickerObj => {
-    if (tickerObj.growth_calculations.revenue['t+1y/max_y_0_to_t'] > 0 &&
-      tickerObj.growth_calculations.gross_profit['t+1y/max_y_0_to_t'] > 0 &&
-      tickerObj.growth_calculations.net_income['t+1y/max_y_0_to_t'] > 0)
+    if (tickerObj.growth_calculations.revenue['t+1y_difference'] > 0 &&
+      tickerObj.growth_calculations.gross_profit['t+1y_difference'] > 0 &&
+      tickerObj.growth_calculations.net_income['t+1y_difference'] > 0)
       return tickerObj
   })
 
@@ -77,7 +77,7 @@ export const main = async () => {
 
   sortedRankedTickerList.forEach(stockObj => {
 
-    const profitMarginString = stockObj['profit_m']
+    const profitMarginString = stockObj.fundamentals['profit_m']
 
     if (profitMarginString !== '-') {
 

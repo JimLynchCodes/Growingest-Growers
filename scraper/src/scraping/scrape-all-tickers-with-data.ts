@@ -109,18 +109,21 @@ export async function scrapeAllTickersWithCluster(page) {
                 // console.log('symbols with data: ', symbolsData);
 
                 const someSymbols = [];
-                let currentObj = {}
+                let currentObj = { ticker: '', fundamentals: {} }
 
                 symbolsData.map((symbolDataCellText, index) => {
 
                     // if (index % tableHeaderCells.length === 0)
 
+                    // console.log('saving obj: ', currentObj)
+
                     if (index % tableHeaderCells.length === tableHeaderCells.length - 1) {
+                        currentObj.ticker = currentObj.fundamentals['ticker']
                         someSymbols.push(currentObj);
-                        currentObj = {}
+                        currentObj = { ticker: '', fundamentals: {} }
                     }
 
-                    currentObj[tableHeaderCells[index % tableHeaderCells.length]] = symbolDataCellText
+                    currentObj.fundamentals[tableHeaderCells[index % tableHeaderCells.length]] = symbolDataCellText
                 })
 
                 // console.log('mapped symbols data: ', symbolsData.length);
