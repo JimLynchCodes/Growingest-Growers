@@ -40,8 +40,6 @@ export const main = async () => {
   console.log(`filtered out ${scrapedTickerList.length - scrapedTickerListNotOvervalued.length} overvalued items...`)
 
   const [tickerListWithIncomeData, tickersWithNoIncomeData] = await getTickerListWithIncomeDataApiCalls(scrapedTickerListNotOvervalued)
-  // const tickerListWithIncomeData = await getTickerListWithIncomeDataApiCalls(tickerListPageData)
-  // console.log('ticker list with income data: ', JSON.stringify(tickerListWithIncomeData[0], null, 2))
   console.log('scraped pages, num: ', tickerListWithIncomeData.length)
   console.log('tickersWithNoIncomeData num: ', tickersWithNoIncomeData.length)
   console.log('tickersWithNoIncomeData num: ', tickersWithNoIncomeData)
@@ -64,9 +62,9 @@ export const main = async () => {
 
   // Remove stocks that are shrinking in all three areas...
   const sortedRankedTickerListGoodOnes = sortedRankedTickerList.filter(tickerObj => {
-    if (tickerObj.growth_calculations.revenue['t+1y/t_difference'] > 0 &&
-      tickerObj.growth_calculations.gross_profit['t+1y/t_difference'] > 0 &&
-      tickerObj.growth_calculations.net_income['t+1y/t_difference'] > 0)
+    if (tickerObj.growth_calculations.revenue['t+1y/max_y_0_to_t'] > 0 &&
+      tickerObj.growth_calculations.gross_profit['t+1y/max_y_0_to_t'] > 0 &&
+      tickerObj.growth_calculations.net_income['t+1y/max_y_0_to_t'] > 0)
       return tickerObj
   })
 
@@ -98,7 +96,7 @@ export const main = async () => {
     }
   })
 
-  const smallerListOfEverything = sortedRankedTickerListGoodOnes.splice(0, process.env.ALL_STOCKS_MAX_TICKERS)
+  const smallerListOfEverything = sortedRankedTickerListGoodOnes.splice(0, 600)
 
   await insert({
     date_scraped: new Date(),

@@ -130,11 +130,9 @@ export async function scrapeAllTickersWithCluster(page) {
             }
             catch (err) {
                 console.log('errr', err)
+                await page.screenshot({ path: `img/${url.slice(url.length - 5)}.png` });
 
                 console.log('errored so requeuing: ', url)
-                cluster.queue(url)
-
-                await page.screenshot({ path: `img/${url.slice(url.length - 5)}.png` });
             }
 
         });

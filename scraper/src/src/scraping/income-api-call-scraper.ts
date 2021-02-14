@@ -21,7 +21,7 @@ export async function getTickerListWithIncomeDataApiCalls(tickersWithQuoteData) 
         const quarterlyUrl = quarterlyIncomeStatementsBaseUrl + tickerObj['ticker']
 
         console.log('built a new quarterly url: ', quarterlyUrl)
-        return new Promise(resolve => setTimeout(resolve, +process.env.MS_BETWEEN_INCOME_STATEMENT_CALLS * index)).then(() => fetch(quarterlyUrl)
+        return new Promise(resolve => setTimeout(resolve, 70 * index)).then(() => fetch(quarterlyUrl)
             .then(response => response.json())
             .catch(err => {
                 console.log('uh oh, error calling for quarterly statements: ', err)
