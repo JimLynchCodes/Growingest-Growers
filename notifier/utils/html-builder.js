@@ -108,7 +108,7 @@ const buildEgRowFromStocksArray = (stocksArray) => {
                 '</td>' +
                 
                 '<td style="min-width:78px">' +
-                `<p title="Net Profit Margin: ${stockObj.fundamentals['p/e']}&#013;Operating Profit Margin: ${stockObj.fundamentals['oper_m']}&#013;Gross Profit Margin: ${stockObj.fundamentals['gross_m']}">${stockObj.fundamentals['profit_m']}</p>&#013;` +
+                `<p title="Net Profit Margin: ${stockObj.fundamentals['profit_m']}&#013;Operating Profit Margin: ${stockObj.fundamentals['oper_m']}&#013;Gross Profit Margin: ${stockObj.fundamentals['gross_m']}">${stockObj.fundamentals['profit_m']}</p>&#013;` +
                 '</td>' +
                 
                 '<td style="min-width:78px">' +
