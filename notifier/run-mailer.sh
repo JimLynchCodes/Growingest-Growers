@@ -11,7 +11,7 @@ source ~/.nvm/nvm.sh
 source ~/.profile
 
 # Navigate into the project directory.
-cd ~/Git-Projects/expo-grow-mailer/notifier
+cd ~/Git-Projects/Growingest-Growers/notifier
 
 # Use project's preferred node version from .nvmrc file.
 nvm use
