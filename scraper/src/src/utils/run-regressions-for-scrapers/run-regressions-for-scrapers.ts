@@ -153,7 +153,7 @@ export function runRegressionsForTickers(tickerListPageData) {
 
 
 
-// db.getCollection('eg_analyzed_results').find({}, { $filter: {"input" : "$stock_list",
+// db.getCollection('gg_analyzed_results').find({}, { $filter: {"input" : "$stock_list",
 //              "as" : "stock",
 //              "cond" : {
 //                 "$and" : [
