@@ -150,16 +150,3 @@ export function runRegressionsForTickers(tickerListPageData) {
         })
 
 }
-
-
-
-// db.getCollection('eg_analyzed_results').find({}, { $filter: {"input" : "$stock_list",
-//              "as" : "stock",
-//              "cond" : {
-//                 "$and" : [
-//                    { "$gtr" : [ "$$stock.profit_m", "0" ] }
-//                 ]
-//              } 
-//             }}
-
-//              ).sort({_id: -1}).limit(1)
