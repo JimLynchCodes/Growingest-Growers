@@ -8,8 +8,21 @@ First, set up the environment variables in each env file:
 
 Ensure you have `nvm` installed on the host system.
 
+(In either scraper or notifier folders)
 ```
 nvm i && nvm use
+```
+
+You may also need to manually create the "logs" folders:
+```
+mkdir ~/Git-Projects/Growingest-Growers/scraper/logs/
+mkdir ~/Git-Projects/Growingest-Growers/notifier/logs/
+```
+
+On ubuntu, may need to do this as well for scraper to work:
+```
+sudo apt-get update
+sudo apt-get install -y libgbm-dev
 ```
 
 Assumes you are cloing the "Growing-Growers" repo into "~/Git-Projects" on your host sysmtem...

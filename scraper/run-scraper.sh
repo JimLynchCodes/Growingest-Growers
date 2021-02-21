@@ -1,5 +1,9 @@
 #!/bin/bash -l
 
+source ~/.bashrc
+source ~/.nvm/nvm.sh
+source ~/.profile
+
 # Print some nice things in the logs.
 printf "=======================================\n\n"
 printf "Running Growingest Growers Scraper...\n"
