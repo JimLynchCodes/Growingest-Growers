@@ -1,0 +1,47 @@
+
+language: node_js
+node_js:
+  - v13.13.0
+
+addons:
+  apt:
+    packages:
+      # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves for cypress tests
+      - libgconf-2-4
+
+before_install:
+  - export TZ=America/New_York
+
+install:
+  - cd scraper
+  - node --version
+  - pwd
+  - npm install
+
+  - cd ../notifier
+  - npm install
+  - cd ..
+
+before_script:
+  - chmod +x ./scraper/run-scraper.sh
+  - chmod +x ./notifier/run-notifier.sh
+
+script:
+   - ./scraper/run-scraper.sh && ./notifier/run-notifier.sh
+
+after_script:
+  - echo ran script
+
+after_success:
+  - echo "I guess we're done here!"
+
+matrix:
+  fast_finish: true
+
+cache:
+  # Caches $HOME/.npm when npm ci is default script command
+  # Caches node_modules in all other cases
+  npm: true
+  directories:
+    # we also need to cache folder with Cypress binary
+    - ~/.cache
