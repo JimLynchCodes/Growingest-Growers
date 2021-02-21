@@ -30,10 +30,10 @@ before_script:
 
 script:
    - cd scraper 
-   - ./scraper/run-scraper.sh
+   - ./run-scraper.sh
    
    - cd notifer 
-   - ./notifier/run-notifier.sh
+   - ./run-notifier.sh
 
 after_script:
   - echo ran script
