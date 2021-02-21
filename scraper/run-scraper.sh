@@ -9,11 +9,11 @@ printf "=======================================\n\n"
 printf "Running Growingest Growers Scraper...\n"
 printf "$(date)\n\n"
 
-cd ~/Git-Projects/Growingest-Growers/scraper
+# cd ~/Git-Projects/Growingest-Growers/scraper
 
-nvm use
+# nvm use
 
-npm i
+# npm i
 
 npm run start:timed
 

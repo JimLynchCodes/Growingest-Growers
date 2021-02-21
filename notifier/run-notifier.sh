@@ -6,17 +6,17 @@ printf "Running Growingest Growers Mailer...\n"
 printf "$(date)\n\n"
 
 # Load these for nvm and node.
-source ~/.bashrc
-source ~/.nvm/nvm.sh
-source ~/.profile
+# source ~/.bashrc
+# source ~/.nvm/nvm.sh
+# source ~/.profile
 
 # Navigate into the project directory.
-cd ~/Git-Projects/Growingest-Growers/notifier
+# cd ~/Git-Projects/Growingest-Growers/notifier
 
 # Use project's preferred node version from .nvmrc file.
-nvm use
+# nvm use
 
 # Run the cron job!
-npm start
+# npm start
 
 printf "\nGrowingest Growers Mailer cronjob has completed!\n"
