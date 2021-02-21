@@ -100,6 +100,10 @@ export const main = async () => {
 
   // const smallerListOfEverything = sortedRankedTickerListGoodOnes.splice(0, process.env.ALL_STOCKS_MAX_TICKERS)
 
+  console.log({ ALL_STOCKS_MAX_TICKERS: process.env.ALL_STOCKS_MAX_TICKERS,
+    PROF_BANDS_MAX_TICKERS: process.env.PROF_BANDS_MAX_TICKERS
+  })
+
   await insert({
     date_scraped: new Date(),
     all_stock_list: sortedRankedTickerListGoodOnes.splice(0, +process.env.ALL_STOCKS_MAX_TICKERS),
