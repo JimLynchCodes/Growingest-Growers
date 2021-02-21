@@ -10,7 +10,7 @@ export function calculateGrowthStatsForTickers(tickersWithQuoteAndGrowthCalcs) {
         let marketCapMillionsNumber = +tickerObj.fundamentals['market_cap'].slice(0, tickerObj.fundamentals['market_cap'].length - 2)
         
         
-        console.log('market cap is:  ',tickerObj.fundamentals['market_cap'])
+        // console.log('market cap is:  ',tickerObj.fundamentals['market_cap'])
 
 
         if (millOrBillMarketCapCharacter === 'M') {
@@ -20,7 +20,7 @@ export function calculateGrowthStatsForTickers(tickersWithQuoteAndGrowthCalcs) {
         if (millOrBillMarketCapCharacter === 'B')
             marketCapMillionsNumber *= 1000
 
-        console.log(`market cap number for ${tickerObj.ticker}: ${marketCapMillionsNumber}`)
+        // console.log(`market cap number for ${tickerObj.ticker}: ${marketCapMillionsNumber}`)
         // console.log(`calcs: ${JSON.stringify(tickerObj.growth_calculations)}`)
 
         if (tickerObj.growth_calculations.revenue &&
