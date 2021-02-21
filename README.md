@@ -30,5 +30,5 @@ Assumes you are cloing the "Growing-Growers" repo into "~/Git-Projects" on your 
 Use this crontab to schedule it every weekday at 5:32pm:
 
 ```
-32 17 * * 1-5  ~/Git-Projects/Growingest-Growers/scraper/run-scraper.sh >> ~/Git-Projects/Growingest-Growers/scraper/logs/cron-logs_`date +\%Y-\%m-\%d`.log 2>&1 && ~/Git-Projects/Growingest-Growers/notifier/run-notifier.sh >> ~/Git-Projects/Growingest-Growers/notifier/logs/cron-logs_`date +\%Y-\%m-\%d`.log 2>&1
+32 17 * * 1-5  ~/Git-Projects/Growingest-Growers/scraper/run-scraper.sh >> ~/Git-Projects/Growingest-Growers/scraper/logs/cron-logs_`date +\%Y-\%m-\%d`.log 2>&1 && ~/Git-Projects/Growingest-Growers/notifier/run-notifier.sh >> ~/Git-Projects/Growingest-Growers/notifier/logs/cron-logs_`date +\%Y-\%m-\%d`.log 2>&1 &
 ```
