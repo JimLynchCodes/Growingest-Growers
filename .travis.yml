@@ -29,7 +29,11 @@ before_script:
   - chmod +x notifier/run-notifier.sh
 
 script:
-   - ./scraper/run-scraper.sh && ./notifier/run-notifier.sh
+   - cd scraper 
+   - ./scraper/run-scraper.sh
+   
+   - cd notifer 
+   - ./notifier/run-notifier.sh
 
 after_script:
   - echo ran script
