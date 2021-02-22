@@ -22,8 +22,8 @@ export const main = async () => {
 
   const scrapedTickerList = await scrapeAllTickersWithCluster(page)
 
-  console.log(`found ${scrapedTickerList.length} tickers...`)
-  console.log(`found at zero: ${JSON.stringify(scrapedTickerList[0]), null, 2}`)
+  // console.log(`found ${scrapedTickerList.length} tickers...`)
+  // console.log(`found at zero: ${JSON.stringify(scrapedTickerList[0]), null, 2}`)
 
   const scrapedTickerListNotOvervalued = scrapedTickerList.filter(stockObj => {
     const peString = stockObj.fundamentals['p/e']
@@ -42,25 +42,25 @@ export const main = async () => {
   const [tickerListWithIncomeData, tickersWithNoIncomeData] = await getTickerListWithIncomeDataApiCalls(scrapedTickerListNotOvervalued)
   // const tickerListWithIncomeData = await getTickerListWithIncomeDataApiCalls(tickerListPageData)
   // console.log('ticker list with income data: ', JSON.stringify(tickerListWithIncomeData[0], null, 2))
-  console.log('scraped pages, num: ', tickerListWithIncomeData.length)
-  console.log('tickersWithNoIncomeData num: ', tickersWithNoIncomeData.length)
-  console.log('tickersWithNoIncomeData num: ', tickersWithNoIncomeData)
+  // console.log('scraped pages, num: ', tickerListWithIncomeData.length)
+  // console.log('tickersWithNoIncomeData num: ', tickersWithNoIncomeData.length)
+  // console.log('tickersWithNoIncomeData num: ', tickersWithNoIncomeData)
 
-  console.log('no income for these: ', tickerListWithIncomeData.filter(obj => !obj.income_statements.quarterly || !obj.income_statements.quarterly))
+  // console.log('no income for these: ', tickerListWithIncomeData.filter(obj => !obj.income_statements.quarterly || !obj.income_statements.quarterly))
 
   const tickerListWithRegressionsRun = runRegressionsForTickers(tickerListWithIncomeData)
   // console.log('ticker list with regressions run: ', JSON.stringify(tickerListWithRegressionsRun, null, 2))
-  console.log('ticker list with regressions num: ', tickerListWithRegressionsRun.length)
+  // console.log('ticker list with regressions num: ', tickerListWithRegressionsRun.length)
 
   const tickerListWithGrowthCalculations = calculateGrowthStatsForTickers(tickerListWithRegressionsRun)
-  console.log('with growth calcs: ', tickerListWithGrowthCalculations.length)
+  // console.log('with growth calcs: ', tickerListWithGrowthCalculations.length)
   // console.log('ticker list with growth calcs: ', JSON.stringify(tickerListWithGrowthCalculations, null, 2))
 
   const [rankedTickerList, rankingsMaxesAndMins] = calculateRankings(tickerListWithGrowthCalculations)
-  console.log('with rankings: ', rankedTickerList.length)
+  // console.log('with rankings: ', rankedTickerList.length)
 
   const sortedRankedTickerList = sortByRankings(rankedTickerList)
-  console.log('sorted rankings: ', sortedRankedTickerList.length)
+  // console.log('sorted rankings: ', sortedRankedTickerList.length)
 
   // Remove stocks that are shrinking in all three areas...
   const sortedRankedTickerListGoodOnes = sortedRankedTickerList.filter(tickerObj => {
