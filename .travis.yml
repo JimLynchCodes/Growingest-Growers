@@ -32,7 +32,7 @@ script:
    - cd scraper 
    - ./run-scraper.sh
    
-   - cd notifier 
+   - cd ../notifier 
    - ./run-notifier.sh
 
 after_script:
