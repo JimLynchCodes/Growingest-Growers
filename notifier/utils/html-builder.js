@@ -17,7 +17,7 @@ const getEmailHeader = analyzedStocks => `<!DOCTYPE html PUBLIC "-//W3C//DTD XHT
     '<p style="font-size: 2rem;">' +
     '<div style="width:100%;text-align:center;width:auto;min-height:50px;">🏆</div>' +
     '</p>' +
-    '<p style="font-size: 1rem;">Have friends who want to receive this daily Exponential Growth email? <a href="https://cdn.forms-content.sg-form.com/f034a73f-a80f-11ea-8e17-928c85d443c0">Sign up here</a>!</p>' +
+    '<p style="font-size: 1rem;">Have friends who want to receive this daily Exponential Growth email? <a href="https://cdn.forms-content.sg-form.com/96a826d9-755c-11eb-a965-de1752b54cd1">Sign up here</a>!</p>' +
     '<hr/>' +
     '<br/>'
 

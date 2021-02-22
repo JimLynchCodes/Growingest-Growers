@@ -82,4 +82,4 @@ these env variables allow for manually running through all the various things wi
 
 If you or a friend would like to sign up to recieve Triple Trenders email notifactions, you can do so here:
 
-https://cdn.forms-content.sg-form.com/a05e73a6-3ffa-11eb-914e-2e15f5059f35
+https://cdn.forms-content.sg-form.com/96a826d9-755c-11eb-a965-de1752b54cd1
