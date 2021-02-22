@@ -17,6 +17,6 @@ printf "$(date)\n\n"
 # nvm use
 
 # Run the cron job!
-# npm start
+npm start
 
 printf "\nGrowingest Growers Mailer cronjob has completed!\n"
