@@ -127,13 +127,12 @@ const buildEgRowFromStocksArray = (stocksArray) => {
                 // '</td>' +
                 '</tr>'
         })
-    // .join('')
 
-    console.log('end thing: ', end_thing)
+    // console.log('end thing: ', end_thing)
 
     const joined = end_thing.join('')
 
-    console.log('returning this: ', joined)
+    // console.log('returning this: ', joined)
 
     return joined
 }
