@@ -19,7 +19,7 @@ const getSendgridTripleTrendersEmailRecipients = listId => {
         const emailAddressesForTtSubscribers = data[0].body.result
 
         /**
-         *  Uncomment below line to find the correct value for TT_SG_EMAIL_SUBSCRIBERS_LIST_ID
+         *  Uncomment below line to find the correct value for GG_SG_EMAIL_SUBSCRIBERS_LIST_ID
          *  */
         // logger.info('right from sg: ' + emailAddressesForTtSubscribers)
 

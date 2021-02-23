@@ -52,12 +52,12 @@ Using jim's evaluates2 account for tt.
 
 Uses these sg features:
 
-- unsubscribe group: the "unsubscribe" and "manage email preferences links are appended my sendrid and add /remove users to the sendgrid unsubscribe list, referred to by the "TT_SG_EMAIL_SUBSCRIBERS_LIST_ID" unsub id env variable.
+- unsubscribe group: the "unsubscribe" and "manage email preferences links are appended my sendrid and add /remove users to the sendgrid unsubscribe list, referred to by the "GG_SG_EMAIL_SUBSCRIBERS_LIST_ID" unsub id env variable.
 
 - Signup Forms - uses a sendgrid signup form to register new users, keeps track of users in sendgrid, env variables:
 
 - SENDGRID_KEY
-- TT_SG_EMAIL_SUBSCRIBERS_LIST_ID
+- GG_SG_EMAIL_SUBSCRIBERS_LIST_ID
 - SENDGRID_UNSUBSCRIBE_GROUP_ID
 - SG_FROM_EMAIL
 

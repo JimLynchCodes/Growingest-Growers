@@ -45,7 +45,7 @@ const main = async () => {
 
     return new Promise(async resolve => {
 
-      const sgEgTrueRecipients = await getSendgridTripleTrendersEmailRecipients(process.env.TT_SG_EMAIL_SUBSCRIBERS_LIST_ID)
+      const sgEgTrueRecipients = await getSendgridTripleTrendersEmailRecipients(process.env.GG_SG_EMAIL_SUBSCRIBERS_LIST_ID)
 
       logger.info(`sendgrid recipients: ${JSON.stringify(sgEgTrueRecipients)}`)
 
