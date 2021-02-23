@@ -53,6 +53,8 @@ const main = async () => {
 
       sgRecipients = process.env.SEND_TO_ONLY_ADMIN !== 'true' ? sgEgTrueRecipients : [process.env.ADMIN_EMAIL]
 
+      console.log('sending to this many recipients: ' + sgRecipients.length);
+
       sgRecipients.forEach((recipient, i) => {
 
         sg.setApiKey(process.env.SENDGRID_KEY);

@@ -70,7 +70,7 @@ const buildEgRowFromStocksArray = (stocksArray) => {
             const grossProfitBarHeight = 2 + Math.floor(43 * stockObj.rankings.gross_profit)
             const netIncomeBarHeight = 2 + Math.floor(43 * stockObj.rankings.net_income)
 
-            console.log('stock obj: ', JSON.stringify(stockObj))
+            // console.log('stock obj: ', JSON.stringify(stockObj))
 
             return tr +
                 '<td style="min-width:85px">' +
