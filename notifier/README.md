@@ -67,7 +67,7 @@ change these env variables to your own mongo connect, database, and collection:
 
 - MONGO_URI
 - DATABASE_NAME
-- EXPO_GROWTH_ANALYSIS_COLLECTION
+- MONGO_COLLECTION
 
 - SEND_TO_ONLY_ADMIN
 

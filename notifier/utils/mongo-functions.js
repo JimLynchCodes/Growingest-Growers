@@ -14,11 +14,11 @@ const readStocksEgAnalysis = () => {
         MongoClient.connect(process.env.MONGO_URI, async (err, db) => {
             if (err) throw err
 
-            console.log('connected to mongo collection to read sector scrapes from: ', process.env.EXPO_GROWTH_ANALYSIS_COLLECTION)
+            console.log('connected to mongo collection to read sector scrapes from: ', process.env.MONGO_COLLECTION)
 
             var dbo = db.db(process.env.DATABASE_NAME)
 
-            const stocks_analysis_data = await dbo.collection(process.env.EXPO_GROWTH_ANALYSIS_COLLECTION)
+            const stocks_analysis_data = await dbo.collection(process.env.MONGO_COLLECTION)
                 .find()
                 .sort({ '_id': -1 })
                 .limit(1)
