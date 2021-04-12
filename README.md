@@ -19,13 +19,13 @@ mkdir ~/Git-Projects/Growingest-Growers/scraper/logs/
 mkdir ~/Git-Projects/Growingest-Growers/notifier/logs/
 ```
 
-On ubuntu, may need to do this as well for scraper to work:
+On ubuntu, you'll probably also need to do this for the scraper to work:
 ```
 sudo apt-get update
 sudo apt-get install -y libgbm-dev
 ```
 
-Assumes you are cloing the "Growing-Growers" repo into "~/Git-Projects" on your host sysmtem...
+Assumes you are cloing the "Growing-Growers" repo into "~/Git-Projects" on your host system...
 
 Use this crontab to schedule it every weekday at 5:32pm:
 
