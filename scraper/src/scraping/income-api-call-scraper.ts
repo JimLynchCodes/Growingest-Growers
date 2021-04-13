@@ -24,12 +24,12 @@ export async function getTickerListWithIncomeDataApiCalls(tickersWithQuoteData) 
         return new Promise(resolve => setTimeout(resolve, +process.env.MS_BETWEEN_INCOME_STATEMENT_CALLS * index)).then(() => fetch(quarterlyUrl)
             .then(response => response.json())
             .catch(err => {
-                console.log('uh oh, error calling for quarterly statements: ', err)
+                console.log('uh oh, error calling for quarterly statements: ', err);
+
+                return null;
             }));
 
     })
-
-
 
     // TODO - not scraping correct income statements for Ticker? 🤔
 
@@ -48,9 +48,6 @@ export async function getTickerListWithIncomeDataApiCalls(tickersWithQuoteData) 
 
     //     const result = await apiCall;
     //     const niceResult = makeObjectKeysNice(result)
-
-    //     // console.log('got annual income data for: ', index, ' ', tickersWithQuoteData[index].ticker, ' ', niceResult)
-
     //     annualIncomeHolder[tickersWithQuoteData[index].ticker] = niceResult;
 
     //     if (index % 100 === 0)
@@ -68,15 +65,11 @@ export async function getTickerListWithIncomeDataApiCalls(tickersWithQuoteData) 
 
         if (index % 100 === 0)
             console.log('got quarterly income data: ', index);
-        // console.log('got quarterly income data for: ', index, ' ', tickersWithQuoteData[index].ticker, ' ', niceResult);
     }
 
     const tickersWithIncomeData = tickersWithQuoteData.map((tickerObj, currentIndex) => {
 
-        // console.log('2323 saving income data for: ', currentIndex, ' - ', tickerObj.ticker, annualIncomeHolder[tickerObj.ticker])
-
-        // if (!annualIncomeHolder[tickerObj.ticker].data || !quarterlyIncomeHolder[tickerObj.ticker].data)
-        if (!quarterlyIncomeHolder[tickerObj.ticker].data)
+       if (!quarterlyIncomeHolder[tickerObj.ticker].data)
             tickersWithNoIncomeData.push(tickerObj.ticker)
 
         return {
@@ -115,30 +108,3 @@ function makeObjectKeysNice(obj, ticker) {
         }, {})
     }
 }
-
-// function makeObjectKeysNice(arrayOfObjects) {
-
-//     return arrayOfObjects
-//         // .filter(obj => !obj.error)
-//         // .filter(obj => obj.data !== undefined)
-//         .map(obj => {
-
-//         //     // console.log('making keys nice: ', obj)
-
-//             if (!obj.currency || !obj.data)
-//                 return {
-//                     currency: null,
-//                     data: null
-//                 }
-
-//             return {
-//                 currency: obj.currency,
-//                 data: Object.entries(obj.data).reduce((finalObj, [key, val]) => {
-//                     const validKey = key.toLowerCase().replace(/[.]/g, '').replace(/[ ]/g, '_')
-//                     finalObj[validKey] = val
-//                     return finalObj
-//                 }, {})
-//             }
-
-//         })
-// }

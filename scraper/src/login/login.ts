@@ -18,6 +18,7 @@ export async function login(page: Page) {
         
         try {
             await page.waitForSelector('.is-elite', { timeout: 4000 });
+            console.log('logged in!!!')
             resolve(true)
         } 
         catch (err) {

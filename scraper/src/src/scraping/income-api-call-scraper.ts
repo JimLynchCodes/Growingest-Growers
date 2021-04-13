@@ -67,8 +67,8 @@ export async function getTickerListWithIncomeDataApiCalls(tickersWithQuoteData) 
         quarterlyIncomeHolder[tickersWithQuoteData[index].ticker] = niceResult;
 
         if (index % 100 === 0)
-            console.log('got quarterly income data: ', index);
-        // console.log('got quarterly income data for: ', index, ' ', tickersWithQuoteData[index].ticker, ' ', niceResult);
+            // console.log('got quarterly income data: ', index);
+            console.log('got quarterly income data for: ', index, ' ', tickersWithQuoteData[index].ticker, ' ', niceResult);
     }
 
     const tickersWithIncomeData = tickersWithQuoteData.map((tickerObj, currentIndex) => {

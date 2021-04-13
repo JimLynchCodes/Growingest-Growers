@@ -20,7 +20,12 @@ export const main = async () => {
 
   console.log('ok...')
 
-  const scrapedTickerList = await scrapeAllTickersWithCluster(page)
+  console.log('here now')
+  const scrapedTickerList = await scrapeAllTickersWithCluster(page);
+  
+  console.log('here after: ')
+  console.log('here after scrapedTickerList: ', scrapedTickerList)
+
 
   console.log(`found ${scrapedTickerList.length} tickers...`)
   console.log(`found at zero: ${JSON.stringify(scrapedTickerList[0]), null, 2}`)

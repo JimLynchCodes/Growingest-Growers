@@ -25,9 +25,15 @@ export async function getFinvizQuoteDataForTickersWithCluster(page, tickers) {
 
             try {
 
-                // console.log('checking stock page at url: ', url)
+                console.log('checking stock page at url: ', url)
 
                 await page.goto(url, { waitUntil: 'domcontentloaded' })
+
+                const anything = await page.evaluate(() => Array
+                    .from(document.querySelectorAll('div'))
+                    .map(cell => cell.textContent))
+
+                console.log('anything: ', anything)
 
                 const headerAndIndustriesText = await page.evaluate(() => Array
                     .from(document.querySelectorAll('.fullview-title tr td'))

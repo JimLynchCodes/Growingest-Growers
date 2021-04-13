@@ -18,12 +18,9 @@ export const main = async () => {
 
   await login(page);
 
-  console.log('ok...')
+  console.log('ok now...')
 
   const scrapedTickerList = await scrapeAllTickersWithCluster(page)
-
-  // console.log(`found ${scrapedTickerList.length} tickers...`)
-  // console.log(`found at zero: ${JSON.stringify(scrapedTickerList[0]), null, 2}`)
 
   const scrapedTickerListNotOvervalued = scrapedTickerList.filter(stockObj => {
     const peString = stockObj.fundamentals['p/e']
@@ -43,32 +40,43 @@ export const main = async () => {
   // const tickerListWithIncomeData = await getTickerListWithIncomeDataApiCalls(tickerListPageData)
   // console.log('ticker list with income data: ', JSON.stringify(tickerListWithIncomeData[0], null, 2))
   // console.log('scraped pages, num: ', tickerListWithIncomeData.length)
-  // console.log('tickersWithNoIncomeData num: ', tickersWithNoIncomeData.length)
+  console.log('tickersWithNoIncomeData length: ', tickersWithNoIncomeData.length)
   // console.log('tickersWithNoIncomeData num: ', tickersWithNoIncomeData)
 
   // console.log('no income for these: ', tickerListWithIncomeData.filter(obj => !obj.income_statements.quarterly || !obj.income_statements.quarterly))
 
   const tickerListWithRegressionsRun = runRegressionsForTickers(tickerListWithIncomeData)
   // console.log('ticker list with regressions run: ', JSON.stringify(tickerListWithRegressionsRun, null, 2))
-  // console.log('ticker list with regressions num: ', tickerListWithRegressionsRun.length)
+  console.log('ticker list with regressions length: ', tickerListWithRegressionsRun.length)
 
   const tickerListWithGrowthCalculations = calculateGrowthStatsForTickers(tickerListWithRegressionsRun)
-  // console.log('with growth calcs: ', tickerListWithGrowthCalculations.length)
+  console.log('with growth calcs length: ', tickerListWithGrowthCalculations.length)
   // console.log('ticker list with growth calcs: ', JSON.stringify(tickerListWithGrowthCalculations, null, 2))
 
   const [rankedTickerList, rankingsMaxesAndMins] = calculateRankings(tickerListWithGrowthCalculations)
-  // console.log('with rankings: ', rankedTickerList.length)
+  console.log('with rankings length: ', rankedTickerList.length)
 
   const sortedRankedTickerList = sortByRankings(rankedTickerList)
-  // console.log('sorted rankings: ', sortedRankedTickerList.length)
+  console.log('sorted rankings length: ', sortedRankedTickerList.length)
 
   // Remove stocks that are shrinking in all three areas...
   const sortedRankedTickerListGoodOnes = sortedRankedTickerList.filter(tickerObj => {
-    if (tickerObj.growth_calculations.revenue['t+1y_difference'] > 0 &&
-      tickerObj.growth_calculations.gross_profit['t+1y_difference'] > 0 &&
-      tickerObj.growth_calculations.net_income['t+1y_difference'] > 0)
+    if (tickerObj.growth_calculations.revenue['t+1y_difference'] > 0 ||
+      tickerObj.growth_calculations.gross_profit['t+1y_difference'] > 0 ||
+      tickerObj.growth_calculations.net_income['t+1y_difference'] > 0 ||
+      !tickerObj.growth_calculations.revenue['t+1y_difference'] ||
+      !tickerObj.growth_calculations.gross_profit['t+1y_difference'] ||
+      !tickerObj.growth_calculations.net_income['t+1y_difference']
+      )
       return tickerObj
+    else {
+      console.log('oof, All PGPD\'s are negative for: ', tickerObj.ticker)
+      console.log(tickerObj.growth_calculations.revenue['t+1y_difference'], ' ',
+        tickerObj.growth_calculations.gross_profit['t+1y_difference'], ' ',
+        tickerObj.growth_calculations.net_income['t+1y_difference'])
+    }
   })
+  console.log('sorted rankings good ones length: ', sortedRankedTickerListGoodOnes.length)
 
   console.log('let\'s save it!')
   console.log(rankingsMaxesAndMins)
@@ -100,7 +108,8 @@ export const main = async () => {
 
   // const smallerListOfEverything = sortedRankedTickerListGoodOnes.splice(0, process.env.ALL_STOCKS_MAX_TICKERS)
 
-  console.log({ ALL_STOCKS_MAX_TICKERS: process.env.ALL_STOCKS_MAX_TICKERS,
+  console.log({
+    ALL_STOCKS_MAX_TICKERS: process.env.ALL_STOCKS_MAX_TICKERS,
     PROF_BANDS_MAX_TICKERS: process.env.PROF_BANDS_MAX_TICKERS
   })
 
